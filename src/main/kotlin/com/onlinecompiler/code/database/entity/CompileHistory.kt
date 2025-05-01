@@ -1,8 +1,6 @@
 package com.onlinecompiler.code.database.entity
 
 import jakarta.persistence.*
-import org.hibernate.annotations.CreationTimestamp
-import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
 
 @Entity
@@ -11,7 +9,7 @@ data class CompileHistory (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    val id: Long,
+    val id: Long = 0,
 
     @Lob
     @Column(nullable = false)
@@ -26,9 +24,7 @@ data class CompileHistory (
 
     val executionTime: Double,
 
-    @CreationTimestamp
     val createdAt: LocalDateTime,
 
-    @UpdateTimestamp
     val updatedAt: LocalDateTime
 )
